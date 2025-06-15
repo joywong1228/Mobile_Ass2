@@ -144,7 +144,6 @@ const styles = StyleSheet.create({
     color: "#232323",
     paddingVertical: 16,
     paddingHorizontal: 18,
-    placeholderTextColor: "rgba(255,255,255,0.5)",
     marginVertical: 10,
     fontSize: 19,
     fontWeight: "600",

@@ -27,12 +27,6 @@ export default function CalgaryScreen() {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      {/* Back Arrow */}
-      <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-        <Ionicons name="arrow-back" size={28} color="#333" />
-        <Text style={styles.backText}>Back</Text>
-      </TouchableOpacity>
-
       {/* City Image */}
       <View style={styles.imageContainer}>
         <Image 

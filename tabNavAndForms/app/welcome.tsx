@@ -1,7 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function WelcomePage() {
+  const router = useRouter();
+
   return (
     <View
       style={{
@@ -12,8 +15,20 @@ export default function WelcomePage() {
       }}
     >
       <Text style={{ color: "#fff", fontSize: 30 }}>
-        this will be the welcome page
+        Welcome to My New App
       </Text>
+      
+      <TouchableOpacity onPress={() => router.push('/welcome/calgary')}>
+        <Text style={{ color: "#fff", fontSize: 20, marginTop: 20 }}>
+          Go to Calgary
+        </Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity onPress={() => router.push('/welcome/vancouver')}>
+        <Text style={{ color: "#fff", fontSize: 20, marginTop: 20 }}>
+          Go to Vancouver
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }

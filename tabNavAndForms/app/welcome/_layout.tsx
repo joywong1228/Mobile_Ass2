@@ -50,7 +50,6 @@ export default function WelcomeLayout() {
         tabBarLabelStyle: { fontSize: 14 },
         headerStyle: { 
           backgroundColor: "#111",
-          height: 50 
         },
         headerTintColor: "#fff",
         headerTitle: "Welcome to My New App",

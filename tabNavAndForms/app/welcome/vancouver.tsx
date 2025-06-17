@@ -1,9 +1,13 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import CityLink from '../../components/CityLink';
 import CityInfo from '../../components/CityInfo';
 
 export default function VancouverScreen() {
+  const router = useRouter();
+
   const vancouverData = {
     cityName: "Vancouver",
     population: "2.6 million",
@@ -24,6 +28,13 @@ export default function VancouverScreen() {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      {/* Back Arrow */}
+      <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
+        <Ionicons name="arrow-back" size={28} color="#333" />
+        <Text style={styles.backText}>Back</Text>
+      </TouchableOpacity>
+
+      {/* City Image */}
       <View style={styles.imageContainer}>
         <Image 
           source={require('../../data/vancouver.jpg')} 
@@ -35,6 +46,7 @@ export default function VancouverScreen() {
         </View>
       </View>
 
+      {/* City Info */}
       <CityInfo 
         cityName={vancouverData.cityName}
         population={vancouverData.population}
@@ -54,15 +66,25 @@ export default function VancouverScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: '#F4F6F8',
   },
   contentContainer: {
     paddingHorizontal: 16,
-    paddingBottom: 100, // Extra space for tab bar
+    paddingBottom: 100,
+  },
+  backButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  backText: {
+    fontSize: 18,
+    color: '#333',
+    marginLeft: 8,
   },
   imageContainer: {
     position: 'relative',
-    marginTop: 16,
     borderRadius: 16,
     overflow: 'hidden',
     shadowColor: '#000',
@@ -80,19 +102,16 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     padding: 16,
   },
   imageTitle: {
-    color: '#FFFFFF',
+    color: '#fff',
     fontSize: 24,
-    fontWeight: '800',
+    fontWeight: 'bold',
     textAlign: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.8)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3,
   },
   bottomSpacer: {
-    height: 20,
+    height: 30,
   },
 });
